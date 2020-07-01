@@ -1,0 +1,9 @@
+version: "3"
+services:
+  aggregator_app:
+    container_name: "aggregator_webservice"
+    build: .
+    env_file:
+      - env_settings/.local
+    ports:
+      - "8000:8000"

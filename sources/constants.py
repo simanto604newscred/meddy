@@ -1,5 +1,9 @@
 __author__ = "MAK"
 
+import os
+
+NEWSAPI_KEY = os.environ.get("NEWSAPI_KEY")
+
 REDDIT_CONFIG = {
     "general": {
         "url": "https://www.reddit.com/r/news/.json",
@@ -17,12 +21,12 @@ everything_news_url = "https://newsapi.org/v2/everything"
 NEWSAPI_CONFIG = {
     "general": {
         "url": "https://newsapi.org/v2/top-headlines",
-        "headers": {"Authorization": "4afff5e8732e41f5861dbf8899503738"},
+        "headers": {"Authorization": NEWSAPI_KEY},
         "payload": {"category": "general", "language": "en"},
     },
     "search": {
         "url": "https://newsapi.org/v2/everything",
-        "headers": {"Authorization": "4afff5e8732e41f5861dbf8899503738"},
+        "headers": {"Authorization": NEWSAPI_KEY},
         "payload": {"language": "en", "sortBy": "relevance"},
     },
 }
