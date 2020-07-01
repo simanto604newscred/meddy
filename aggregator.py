@@ -9,7 +9,7 @@ def aggregate_source(factory, search_query):
     if search_query:
         source.prepare_payload(query=search_query)
     response = source.get_response()
-    result = source.prepare_source_specific_response(response)
+    result = source.prepare_source_specific_response(response) if response else []
     return result
 
 
