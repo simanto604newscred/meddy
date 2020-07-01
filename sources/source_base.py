@@ -12,7 +12,7 @@ class SourceBase:
     def prepare_headers(self):
         raise NotImplementedError()
 
-    def prepare_payload(self):
+    def prepare_payload(self, *args, **kwargs):
         raise NotImplementedError()
 
     def get_response(self):
