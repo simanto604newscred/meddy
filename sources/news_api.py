@@ -1,25 +1,22 @@
 __author__ = "MAK"
 from pydantic.dataclasses import dataclass
 
-from .source_base import SourceBase, FactoryBase
 from .constants import NEWSAPI_CONFIG
+from .source_base import SourceBase, FactoryBase
+
 
 @dataclass
 class NewsAPI(SourceBase):
-
     def prepare_payload(self, query):
         self.payload.update({"q": query})
 
     def prepare_source_specific_response(self, response):
         data = [
-            {
-                "headline": i.get("title"),
-                "link": i.get("url"),
-                "source": "newsapi",
-            }
+            {"headline": i.get("title"), "link": i.get("url"), "source": "newsapi",}
             for i in response.json().get("articles", [])
         ]
         return data
+
 
 @dataclass
 class NewsAPIFactory(FactoryBase):

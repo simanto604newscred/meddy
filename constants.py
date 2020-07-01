@@ -1,10 +1,9 @@
 __author__ = "MAK"
 
-from sources.reddit import RedditFactory
 from sources.news_api import NewsAPIFactory
-
+from sources.reddit import RedditFactory
 
 SOURCE_MAP = {
-    "newsapi" : NewsAPIFactory,
+    "newsapi": NewsAPIFactory,
     "reddit": RedditFactory,
 }

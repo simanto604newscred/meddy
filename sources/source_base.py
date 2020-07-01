@@ -1,6 +1,9 @@
-from pydantic.dataclasses import dataclass
+import json
 from dataclasses import field
-import requests
+
+from pydantic.dataclasses import dataclass
+
+from .utils import get_or_create_cached_response
 
 
 @dataclass
@@ -16,8 +19,8 @@ class SourceBase:
         raise NotImplementedError()
 
     def get_response(self):
-        response = requests.get(url=self.url, headers=self.headers, params=self.payload)
-        return response
+        params = json.dumps({"cache_key": [self.url, self.headers, self.payload]})
+        return get_or_create_cached_response(params=params)
 
     def prepare_source_specific_response(self, response):
         raise NotImplementedError()
