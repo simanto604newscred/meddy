@@ -3,6 +3,8 @@ __author__ = "MAK"
 import os
 
 NEWSAPI_KEY = os.environ.get("NEWSAPI_KEY")
+CACHE_EXPIRY_TIME = 60  # seconds
+API_CONSUMPTION_TIMELIMIT = 6  # seconds
 
 REDDIT_CONFIG = {
     "general": {
@@ -15,9 +17,6 @@ REDDIT_CONFIG = {
     },
 }
 
-top_headlines_url = "https://newsapi.org/v2/top-headlines"
-# To fetch news articles
-everything_news_url = "https://newsapi.org/v2/everything"
 NEWSAPI_CONFIG = {
     "general": {
         "url": "https://newsapi.org/v2/top-headlines",
@@ -31,4 +30,4 @@ NEWSAPI_CONFIG = {
     },
 }
 
-CACHE_EXPIRY_TIME = 60  # seconds
+### ADD Additional API configs here

@@ -6,4 +6,5 @@ from sources.reddit import RedditFactory
 SOURCE_MAP = {
     "newsapi": NewsAPIFactory,
     "reddit": RedditFactory,
+    # add new factory for additional API
 }
