@@ -13,7 +13,7 @@ class NewsAPI(SourceBase):
     def prepare_source_specific_response(self, response):
         data = [
             {"headline": i.get("title"), "link": i.get("url"), "source": "newsapi",}
-            for i in response.json().get("articles", [])
+            for i in response.get("articles", [])
         ]
         return data
 

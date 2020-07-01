@@ -1,7 +1,8 @@
 __author__ = "MAK"
 from pydantic.dataclasses import dataclass
-from .source_base import SourceBase, FactoryBase
+
 from .constants import REDDIT_CONFIG
+from .source_base import SourceBase, FactoryBase
 
 
 @dataclass
@@ -13,7 +14,7 @@ class Reddit(SourceBase):
                 "link": i.get("data", {}).get("url"),
                 "source": "reddit",
             }
-            for i in response.json().get("data", {}).get("children", [])
+            for i in response.get("data", {}).get("children", [])
         ]
         return data
 
