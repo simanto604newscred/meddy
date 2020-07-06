@@ -6,6 +6,7 @@ from constants import SOURCE_MAP
 def aggregate_source(factory, search_query):
     source_factory = factory(bool(search_query))
     source = source_factory.make_source_object()
+    source.prepare_headers()
     if search_query:
         source.prepare_payload(query=search_query)
     response = source.get_response()

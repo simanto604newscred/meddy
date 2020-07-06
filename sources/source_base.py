@@ -15,6 +15,7 @@ class SourceBase:
     headers: dict
     url: str
     payload: dict = field(default_factory=dict)
+    method: str = "GET"
 
     def prepare_headers(self):
         """
@@ -35,7 +36,7 @@ class SourceBase:
 
     def get_response(self):
         params = json.dumps(
-            {"cache_key": [self.url, self.headers, self.payload]}
+            {"cache_key": [self.url, self.headers, self.payload, self.method]}
         )  # make hashable for caching
         return get_or_create_cached_response(params=params)
 
